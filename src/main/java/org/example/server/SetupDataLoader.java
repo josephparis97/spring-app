@@ -37,11 +37,21 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
 	//createRoleIfNotFound("ROLE_ADMIN");
 	//createDepartmentIfNotFound("SET", "SET Department");
 	addAbonne("Joseph", "Paris", "adresse", Arrays.asList(1L));
+	
+	addContrat("68 rue de la liberté 70510 Remiro");
 	//addContrat("J", "Agent", "0679777194", "j@mib.com", "MIB");
 	//addMouvement("Drone");
 	}
 	
-    private void addAbonne(String prenom, String nom, String adresse, List<Long> contratids) {
+  
+
+	private void addContrat(String string) {
+		final Contrat contrat = new Contrat();
+		contrat.setAdresse(string);
+		contratRepository.save(contrat);
+	}
+
+	private void addAbonne(String prenom, String nom, String adresse, List<Long> contratids) {
 	final Abonne abonne = new Abonne();
 	abonne.setPrenom(prenom);
 	abonne.setNom(nom);

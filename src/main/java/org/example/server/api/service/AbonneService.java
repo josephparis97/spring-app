@@ -4,7 +4,6 @@ import org.example.server.api.repository.AbonneRepository;
 import org.example.server.model.Abonne;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 
 @Component

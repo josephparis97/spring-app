@@ -1,7 +1,9 @@
 package org.example.server.api.controller;
 
-import org.example.server.api.service.AbonneService;
-import org.example.server.model.Abonne;
+import org.example.server.api.service.ContratService;
+import org.example.server.api.service.MouvementService;
+import org.example.server.model.Contrat;
+import org.example.server.model.Mouvement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,42 +15,40 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-
-
 @RestController
-public class AbonneController {
+public class MouvementController {
 
 	@Autowired
-    private AbonneService service;
+    private MouvementService service;
 
-    @GetMapping("/abonnes")
-    public Iterable<Abonne> getAllContact() {
+    @GetMapping("/mouvements")
+    public Iterable<Mouvement> getAllMouvements() {
 	return service.listAll();
     }
 
-    @GetMapping("/abonnes/{id}")
-    public Abonne getOneContact(@PathVariable("id") String id) {
+    @GetMapping("/mouvements/{id}")
+    public Mouvement getOneMouvement(@PathVariable("id") String id) {
 	return service.get(Long.parseLong(id));
     }
 
-    @PostMapping("/abonnes")
-    public Abonne addAllAbonne(@RequestBody Abonne requestabonne) {
-	Abonne result;
+    @PostMapping("/mouvements")
+    public Mouvement addAllMouvements(@RequestBody Mouvement requestMouvement) {
+	Mouvement result;
 	try {
-	    result = service.save(requestabonne);
+	    result = service.save(requestMouvement);
 	} catch (final Throwable e) {
 	    throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
-		    "Erreure sur l'ajout de l'abonné : " + requestabonne.getNom(), e);
+		    "Erreur sur l'ajout du mouvement :" + requestMouvement.getId(), e);
 	}
 	return result;
     }
 
-    @PutMapping("/abonnes/{id}")
-    public Abonne update(@PathVariable("id") long id, @RequestBody Abonne requestabonne) {
-	return service.update(id, requestabonne);
-    }
+//    @PutMapping("/mouvements/{id}")
+//    public Contrat update(@PathVariable("id") long id, @RequestBody Mouvement requestMouvement) {
+//	return service.update(id, requestMouvement);
+//    }
 
-    @DeleteMapping("/abonnes/{id}")
+    @DeleteMapping("/mouvements/{id}")
     public void delete(@PathVariable("id") Long id) {
 	service.delete(id);
     }
