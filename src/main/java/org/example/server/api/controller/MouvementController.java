@@ -1,5 +1,7 @@
 package org.example.server.api.controller;
 
+import java.util.Collection;
+
 import org.example.server.api.service.ContratService;
 import org.example.server.api.service.MouvementService;
 import org.example.server.model.Contrat;
@@ -12,6 +14,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -24,6 +29,11 @@ public class MouvementController {
     @GetMapping("/mouvements")
     public Iterable<Mouvement> getAllMouvements() {
 	return service.listAll();
+    }
+    
+    @GetMapping("/mouvements/abonnes/{id}")
+    public Iterable<Mouvement> getAllMouvementsByAbonne(@PathVariable("id") String id) {
+    	return service.listAllByAbonneid(id);
     }
 
     @GetMapping("/mouvements/{id}")

@@ -19,8 +19,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Entity
-@Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "prenom", "nom" }) })
-
 public class Abonne {
 
 	@Id
