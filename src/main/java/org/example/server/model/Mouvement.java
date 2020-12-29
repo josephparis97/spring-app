@@ -9,17 +9,19 @@ import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 
+
+
 @Entity
 public class Mouvement {
 	
 	@EmbeddedId
     private MouvementId id;
  
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @MapsId("abonneId")
     private Abonne abonne;
  
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @MapsId("contratId")
     private Contrat contrat;
  
@@ -42,6 +44,7 @@ public class Mouvement {
         this.nouvelleValeur=nouvelleValeur;
         this.id = new MouvementId(abonne.getId(), contrat.getId());
     }
+    public Mouvement() {}
 
 
 

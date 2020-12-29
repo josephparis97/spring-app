@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "prenom", "nom" }) })
+
 public class Abonne {
 
 	@Id
@@ -40,7 +41,7 @@ public class Abonne {
 	
 	
 	@ManyToMany
-	@JoinTable(name = "abonnes_contrats", joinColumns = @JoinColumn(name = "abonne_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "contrat_id", referencedColumnName = "id"))
+	@JoinTable(name = "abonne_contrat", joinColumns = @JoinColumn(name = "abonne_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "contrat_id", referencedColumnName = "id"))
 	//@JsonIgnoreProperties("users")
 	private Collection<Contrat> contrats;
 

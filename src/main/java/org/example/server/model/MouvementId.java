@@ -3,7 +3,9 @@ package org.example.server.model;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 
+@Embeddable
 public class MouvementId implements Serializable{
 
 	/**
@@ -22,6 +24,8 @@ public class MouvementId implements Serializable{
 		this.abonneId = abonneId;
 		this.contratId = contratId;
 	}
+	
+	public MouvementId() {}
 
 	public Long getAbonneId() {
 		return abonneId;

@@ -36,9 +36,9 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
     public void onApplicationEvent(ContextRefreshedEvent event) {
 	//createRoleIfNotFound("ROLE_ADMIN");
 	//createDepartmentIfNotFound("SET", "SET Department");
+	addContrat("68 rue de la liberté 70510 Remiro");
 	addAbonne("Joseph", "Paris", "adresse", Arrays.asList(1L));
 	
-	addContrat("68 rue de la liberté 70510 Remiro");
 	//addContrat("J", "Agent", "0679777194", "j@mib.com", "MIB");
 	//addMouvement("Drone");
 	}
