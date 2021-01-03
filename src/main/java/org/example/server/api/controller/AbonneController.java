@@ -58,7 +58,6 @@ public class AbonneController {
 		if (requestabonne.getAdresse() != service.get(id).getAdresse()) {
 			String ancienneAdresse=service.get(id).getAdresse();
 			String nouvelleAdresse = requestabonne.getAdresse();
-			// List<long> contratsIds=requestabonne.getContrats().stream()
 			Collection<Contrat> contrats = requestabonne.getContrats();
 			contrats.stream().forEach(contrat -> {
 				contrat.setAdresse(nouvelleAdresse);

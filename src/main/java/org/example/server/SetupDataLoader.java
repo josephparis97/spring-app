@@ -10,8 +10,7 @@ import org.example.server.api.repository.AbonneRepository;
 import org.example.server.api.repository.ContratRepository;
 import org.example.server.model.Abonne;
 import org.example.server.model.Contrat;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -20,7 +19,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class SetupDataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(SetupDataLoader.class);
 
 	boolean alreadySetup = false;
 
@@ -32,15 +30,12 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
 
 	@Override
     @Transactional
-    @SuppressWarnings("java:S1192")
     public void onApplicationEvent(ContextRefreshedEvent event) {
-	//createRoleIfNotFound("ROLE_ADMIN");
-	//createDepartmentIfNotFound("SET", "SET Department");
+
 	addContrat("68 rue de la liberté 70510 Remiro");
 	addAbonne("Joseph", "Paris", "adresse", Arrays.asList(1L));
 	
-	//addContrat("J", "Agent", "0679777194", "j@mib.com", "MIB");
-	//addMouvement("Drone");
+
 	}
 	
   
