@@ -13,6 +13,18 @@ public class Contrat {
 	private Long id;
 
 	private String adresse;
+	
+	
+
+	public Contrat(Long id, String adresse) {
+		super();
+		this.id = id;
+		this.adresse = adresse;
+	}
+
+	public Contrat() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public Long getId() {
 		return id;

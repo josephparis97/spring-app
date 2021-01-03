@@ -44,6 +44,32 @@ public class Abonne {
 	private Collection<Contrat> contrats;
 
 
+	
+	
+	public Abonne(Long id, @NotNull String prenom, @NotNull String nom, @NotNull String adresse,
+			Collection<Contrat> contrats) {
+		super();
+		this.id = id;
+		this.prenom = prenom;
+		this.nom = nom;
+		this.adresse = adresse;
+		this.contrats = contrats;
+	}
+
+
+	public Abonne() {
+		// TODO Auto-generated constructor stub
+	}
+
+	
+
+	@Override
+	public String toString() {
+		return "Abonne [id=" + id + ", prenom=" + prenom + ", nom=" + nom + ", adresse=" + adresse + ", contrats="
+				+ contrats + "]";
+	}
+
+
 	public Long getId() {
 		return id;
 	}
