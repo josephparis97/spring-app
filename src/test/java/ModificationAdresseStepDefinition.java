@@ -22,10 +22,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 
-
-
-
-
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class ModificationAdresseStepDefinition {
@@ -47,10 +43,8 @@ public class ModificationAdresseStepDefinition {
 
 	@When("le conseiller modifie l adresse de l abonné")
 	public void le_conseiller_modifie_l_adresse_de_l_abonné() {
-		
 		Abonne abonneModifie=new Abonne(2L, "Roger", "Rabbit", "68 rue de la solitude 70510 Remiro", contrats);
 		restTemplate.put(baseUrl+"/abonnes/2", abonneModifie);
-		
 		Abonne verificationAbonne=restTemplate.getForObject(baseUrl+"/abonnes/2", Abonne.class);
 		System.out.println("adresse :"+verificationAbonne.getAdresse());
 		assertEquals(verificationAbonne.getAdresse(), "68 rue de la solitude 70510 Remiro");

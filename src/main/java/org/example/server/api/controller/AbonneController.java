@@ -25,11 +25,6 @@ public class AbonneController {
 	@Autowired
 	private AbonneService service;
 
-	@Autowired
-	private ContratService serviceContrat;
-	
-	@Autowired
-	private MouvementService mouvementService;
 
 	@GetMapping("/abonnes")
 	public Iterable<Abonne> getAllAbonnes() {
@@ -55,22 +50,7 @@ public class AbonneController {
 
 	@PutMapping("/abonnes/{id}")
 	public Abonne update(@PathVariable("id") long id, @RequestBody Abonne requestabonne) {
-		if (requestabonne.getAdresse() != service.get(id).getAdresse()) {
-			String ancienneAdresse=service.get(id).getAdresse();
-			String nouvelleAdresse = requestabonne.getAdresse();
-			Collection<Contrat> contrats = requestabonne.getContrats();
-			contrats.stream().forEach(contrat -> {
-				contrat.setAdresse(nouvelleAdresse);
-				serviceContrat.update(contrat.getId(), contrat);
-				
-				
-				Mouvement mouvement=new Mouvement(requestabonne, contrat, "modification d'adresse", ancienneAdresse, nouvelleAdresse);
-				mouvementService.save(mouvement);
-			});
-			
-			
-			
-		}
+
 		return service.update(id, requestabonne);
 	}
 
