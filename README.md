@@ -61,12 +61,12 @@ informations suivantes :
 
 ## Lancer l'Api Rest
 
-Pour lancer l'Api REST, il faut exécuter /spring-app/src/main/java/org/example/server/SpringAppApplication.java
+Exécuter /spring-app/src/main/java/org/example/server/SpringAppApplication.java
 
 ## Lancer les tests Unitaires avec l'API
 
-Exécuter le fichier /spring-app/src/test/java/ModificationAdresseTest.java avec TestNG
+Exécuter /spring-app/src/test/java/ModificationAdresseTest.java avec TestNG
 
 ## Lancer les test unitaire sans API (avec Mock)
 
-Exécuter le fichier /spring-app/src/test/java/mocked/ModificationAdresseMockTest.java avec TestNG
+Exécuter /spring-app/src/test/java/mocked/ModificationAdresseMockTest.java avec TestNG
