@@ -14,20 +14,26 @@ Projet d'évaluation de compétences sur Spring Boot et les tests unitaires.
 				**Alors** la nouvelle adresse de l’abonné est enregistrée sur l'ensemble des contrats de l'abonné
 				**Et** un mouvement de modification d'adresse est créé avec la nouvelle adresse
 				
-	Pour cela, il faudra implémenter les APIs pour :
+	:bulb: Pour cela, il faudra implémenter les APIs pour :
 	- Créer un nouvel abonné
 	- Souscrire à un contrat
 	- Modifier l’adresse de l’abonné
 	- Récupérer les informations d’un abonné
 	- Récupérer l’historique des mouvements de modification effectués pour un abonné
 	
-	En sachant que :
-	- Un abonné peut avoir plusieurs contrats, a un identifiant, un nom, un prénom et une
-	adresse principale
+	:bulb: En sachant que :
+	- Un abonné peut avoir plusieurs contrats, a un identifiant, un nom, un prénom et une adresse principale
 	- Un contrat a un identifiant et une adresse
 	- L’API sur les mouvements de modification doit permettre de récupérer les
-	informations suivantes : identifiant de mouvement, identifiant d’abonné, identifiant de contrat, type de modification, date de modification, nouvelle valeur de modification et ancienne valeur de modification
-	- La modification d’adresse est un type de mouvement de modification
+	informations suivantes : 
+		- identifiant de mouvement 
+		- identifiant d’abonné 
+		- identifiant de contrat 
+		- type de modification 
+		- date de modification 
+		- nouvelle valeur de modification
+		- ancienne valeur de modification
+		- La modification d’adresse est un type de mouvement de modification
 
 ## L'API et ses enpoints :
 
@@ -47,10 +53,10 @@ Projet d'évaluation de compétences sur Spring Boot et les tests unitaires.
 
 3. Les mouvements 
 :point_right: http://localhost:8080/mouvements
-	Get retourne la liste des mouvements
-	Get /abonnes/{id} pour lister les mouvements d'un abonné
-	Post + Json pour ajouter un nouvel contrat
-	Delete /{id} pour supprimer un contrat
+	- Get retourne la liste des mouvements
+	- Get /abonnes/{id} pour lister les mouvements d'un abonné
+	- Post + Json pour ajouter un nouvel contrat
+	- Delete /{id} pour supprimer un contrat
 
 
 ## Lancer l'Api Rest
