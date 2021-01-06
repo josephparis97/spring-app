@@ -63,10 +63,10 @@ informations suivantes :
 
 Exécuter /spring-app/src/main/java/org/example/server/SpringAppApplication.java
 
-## Lancer les tests Unitaires avec l'API
+## Lancer les tests unitaires avec l'API
 
 Exécuter /spring-app/src/test/java/ModificationAdresseTest.java avec TestNG
 
-## Lancer les test unitaire sans API (avec Mock)
+## Lancer les tests unitaires sans API (avec Mock)
 
 Exécuter /spring-app/src/test/java/mocked/ModificationAdresseMockTest.java avec TestNG
