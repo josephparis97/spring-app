@@ -2,6 +2,10 @@
 
 Projet d'évaluation de compétences sur Spring Boot et les tests unitaires.
 
+# L'API et ses enpoints :
+
+:point_right: 
+
 ## Lancer l'Api Rest
 
 Pour lancer l'Api REST, il faut exécuter /spring-app/src/main/java/org/example/server/SpringAppApplication.java
