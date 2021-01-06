@@ -5,6 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.Data;
+
+@Data
 @Entity
 public class Contrat {
 
@@ -14,8 +17,6 @@ public class Contrat {
 
 	private String adresse;
 	
-	
-
 	public Contrat(Long id, String adresse) {
 		super();
 		this.id = id;
@@ -23,23 +24,6 @@ public class Contrat {
 	}
 
 	public Contrat() {
-		// TODO Auto-generated constructor stub
 	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getAdresse() {
-		return adresse;
-	}
-
-	public void setAdresse(String adresse) {
-		this.adresse = adresse;
-	}
-
+	
 }

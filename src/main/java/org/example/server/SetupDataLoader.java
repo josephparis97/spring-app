@@ -19,7 +19,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class SetupDataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
-
 	boolean alreadySetup = false;
 
 	@Autowired
@@ -29,16 +28,11 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
 	private ContratRepository contratRepository;
 
 	@Override
-    @Transactional
-    public void onApplicationEvent(ContextRefreshedEvent event) {
-
-	addContrat("68 rue de la liberté 70510 Remiro");
-	addAbonne("Joseph", "Paris", "adresse", Arrays.asList(1L));
-	
-
+	@Transactional
+	public void onApplicationEvent(ContextRefreshedEvent event) {
+		addContrat("68 rue de la liberté 70510 Remiro");
+		addAbonne("Joseph", "Paris", "adresse", Arrays.asList(1L));
 	}
-	
-  
 
 	private void addContrat(String string) {
 		final Contrat contrat = new Contrat();
@@ -47,17 +41,15 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
 	}
 
 	private void addAbonne(String prenom, String nom, String adresse, List<Long> contratids) {
-	final Abonne abonne = new Abonne();
-	abonne.setPrenom(prenom);
-	abonne.setNom(nom);
-	abonne.setAdresse(adresse);
-	
+		final Abonne abonne = new Abonne();
+		abonne.setPrenom(prenom);
+		abonne.setNom(nom);
+		abonne.setAdresse(adresse);
 
-	final List<Contrat> contrats = new ArrayList<>();
-	contratids.stream().forEach(id -> contratRepository.findById(id).ifPresent(contrats::add));
-
-	abonne.setContrats(contrats);
-	abonneRepository.save(abonne);
-    }
+		final List<Contrat> contrats = new ArrayList<>();
+		contratids.stream().forEach(id -> contratRepository.findById(id).ifPresent(contrats::add));
+		abonne.setContrats(contrats);
+		abonneRepository.save(abonne);
+	}
 
 }

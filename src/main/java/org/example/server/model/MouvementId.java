@@ -5,12 +5,12 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
+import lombok.Data;
+
+@Data
 @Embeddable
 public class MouvementId implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 8358350028677024550L;
 
 	@Column(name="abonne_id")
@@ -27,23 +27,4 @@ public class MouvementId implements Serializable{
 	
 	public MouvementId() {}
 
-	public Long getAbonneId() {
-		return abonneId;
-	}
-
-	public void setAbonneId(Long abonneId) {
-		this.abonneId = abonneId;
-	}
-
-	public Long getContratId() {
-		return contratId;
-	}
-
-	public void setContratId(Long contratId) {
-		this.contratId = contratId;
-	}
-	
-	
-	
-	
 }
