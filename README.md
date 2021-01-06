@@ -33,17 +33,17 @@ Projet d'évaluation de compétences sur Spring Boot et les tests unitaires.
 
 1. Les abonnées
 :point_right: http://localhost:8080/abonnes
-	Get retourne la liste des abonnés
-	Put + Json /{id} pour modifier un abonné
-	Post + Json pour ajouter un nouvel abonné
-	Delete /{id} pour supprimer un abonné
+	- Get retourne la liste des abonnés
+	- Put + Json /{id} pour modifier un abonné
+	- Post + Json pour ajouter un nouvel abonné
+	- Delete /{id} pour supprimer un abonné
 
 2. Les contrats
 :point_right: http://localhost:8080/contrats
-	Get retourne la liste des contrats
-	Put + Json /{id} pour modifier un contrat
-	Post + Json pour ajouter un nouvel contrat
-	Delete /{id} pour supprimer un contrat
+	- Get retourne la liste des contrats
+	- Put + Json /{id} pour modifier un contrat
+	- Post + Json pour ajouter un nouvel contrat
+	- Delete /{id} pour supprimer un contrat
 
 3. Les mouvements 
 :point_right: http://localhost:8080/mouvements
