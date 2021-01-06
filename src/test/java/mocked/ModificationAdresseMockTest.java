@@ -57,7 +57,7 @@ public class ModificationAdresseMockTest extends AbstractTestNGSpringContextTest
     private ObjectMapper mapper = new ObjectMapper();
   
     @Test
-    public void un_abonné_avec_une_adresse_principale_en_france() throws Exception {
+    public void un_abonne_avec_une_adresse_principale_en_france() throws Exception {
     	Collection<Contrat> contrats=Stream.of(new Contrat(1L, "11 rue des volontaires")).collect(Collectors.toCollection(ArrayList::new));
     	Abonne abonne = new Abonne(0L, "Roger", "Rabbit", "11 rue des volontaires", contrats);
         Mockito.when(abonneService.save(Mockito.any(Abonne.class))).thenReturn(abonne);
@@ -68,7 +68,7 @@ public class ModificationAdresseMockTest extends AbstractTestNGSpringContextTest
     }
 
 	@Test
-	public void le_conseiller_modifie_l_adresse_de_l_abonné() throws Exception {
+	public void le_conseiller_modifie_l_adresse_de_l_abonne() throws Exception {
     	Collection<Contrat> contrats=Stream.of(new Contrat(1L, "11 rue des Espadrilles")).collect(Collectors.toCollection(ArrayList::new));
     	Abonne abonneModifié = new Abonne(0L, "Roger", "Rabbit", "11 rue des Espadrilles", contrats);
 		Mockito.when(abonneService.update(Mockito.anyLong(), Mockito.any(Abonne.class))).thenReturn(abonneModifié);
@@ -79,7 +79,7 @@ public class ModificationAdresseMockTest extends AbstractTestNGSpringContextTest
 	}
 
 	@Test
-	public void la_nouvelle_adresse_de_l_abonné_est_enregistrée_sur_l_ensemble_des_contrats_de_l_abonné() throws Exception {
+	public void la_nouvelle_adresse_de_l_abonné_est_enregistre_sur_l_ensemble_des_contrats_de_l_abonne() throws Exception {
     	Collection<Contrat> contrats=Stream.of(new Contrat(1L, "11 rue des Espadrilles")).collect(Collectors.toCollection(ArrayList::new));
     	Abonne abonne = new Abonne(0L, "Roger", "Rabbit", "11 rue des Espadrilles", contrats);
 		Mockito.when(abonneService.get(Mockito.anyLong())).thenReturn(abonne);	
@@ -87,7 +87,7 @@ public class ModificationAdresseMockTest extends AbstractTestNGSpringContextTest
 	}
 
 	@Test
-	public void un_mouvement_de_modification_d_adresse_est_créé_avec_la_nouvelle_adresse() throws Exception {
+	public void un_mouvement_de_modification_d_adresse_est_cree_avec_la_nouvelle_adresse() throws Exception {
 		mvc=MockMvcBuilders.standaloneSetup(mouvementController).build();
     	Collection<Contrat> contrats=Stream.of(new Contrat(1L, "11 rue des Espadrilles")).collect(Collectors.toCollection(ArrayList::new));
     	Mouvement mouvement= new Mouvement(new Abonne(1L, "Roger", "Rabbit", "11 rue des Espadrilles", contrats), new Contrat(1L,"11 rue des Espadrilles"), "modification d'adresse", "11 rue des volontaires", "11 rue des Espadrilles");
