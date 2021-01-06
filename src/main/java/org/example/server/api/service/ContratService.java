@@ -3,10 +3,8 @@ package org.example.server.api.service;
 import org.example.server.api.repository.ContratRepository;
 import org.example.server.model.Contrat;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-//@Component
 @Service
 public class ContratService {
 

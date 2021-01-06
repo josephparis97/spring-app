@@ -24,7 +24,6 @@
 	<dependencies>
 
 		<!-- SPRING -->
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -59,7 +58,6 @@
 		</dependency>
 
 
-
 		<!-- DATABASE -->
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -71,18 +69,11 @@
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<version>7.1.0</version>
+			<version>6.8.5</version>
 			<scope>test</scope>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
-		<dependency>
-			<groupId>io.cucumber</groupId>
-			<artifactId>cucumber-testng</artifactId>
-			<version>2.0.0</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-all -->
+		<!-- MOCKITO -->
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-all</artifactId>
@@ -90,40 +81,35 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- LIST TESTING -->
+		<!-- HAMCREST -->
 		<dependency>
 			<groupId>org.hamcrest</groupId>
 			<artifactId>hamcrest-library</artifactId>
-			<version>1.3</version>
 			<scope>test</scope>
-		</dependency>
-
-
+		</dependency> 
 
 		<!-- CUCUMBER -->
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-java</artifactId>
-			<version>6.9.1</version>
+			<version>5.6.0</version>
 		</dependency>
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-core</artifactId>
-			<version>6.9.1</version>
+			<version>5.6.0</version>
 		</dependency>
 		<dependency>
 			<groupId>io.cucumber</groupId>
-			<artifactId>cucumber-junit</artifactId>
-			<version>6.9.1</version>
-			<scope>test</scope>
+			<artifactId>cucumber-testng</artifactId>
+			<version>5.6.0</version>
 		</dependency>
-
-
-
-
-
-
-
+		 <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-spring</artifactId>
+            <version>5.6.0</version>
+            <scope>test</scope>
+        </dependency>
 
 	</dependencies>
 

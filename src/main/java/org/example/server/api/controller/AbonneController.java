@@ -1,13 +1,7 @@
 package org.example.server.api.controller;
 
-import java.util.Collection;
-
 import org.example.server.api.service.AbonneService;
-import org.example.server.api.service.ContratService;
-import org.example.server.api.service.MouvementService;
 import org.example.server.model.Abonne;
-import org.example.server.model.Contrat;
-import org.example.server.model.Mouvement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
