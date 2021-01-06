@@ -1,3 +1,4 @@
+package stepdefinitions;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -9,21 +10,14 @@ import java.util.List;
 import org.example.server.model.Abonne;
 import org.example.server.model.Contrat;
 import org.example.server.model.Mouvement;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
-
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-
-@RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class ModificationAdresseStepDefinition {
 
 	private RestTemplate restTemplate = new RestTemplate();
@@ -58,15 +52,12 @@ public class ModificationAdresseStepDefinition {
 		for (Contrat contrat : contrats) {
 			assertEquals("68 rue de la solitude 70510 Remiro",contrat.getAdresse());
 		}
-
 	}
 
 	@Then("un mouvement de modification d adresse est créé avec la nouvelle adresse")
 	public void un_mouvement_de_modification_d_adresse_est_créé_avec_la_nouvelle_adresse() {
 		Collection<Mouvement> mouvements=restTemplate.exchange(baseUrl+ "/mouvements", HttpMethod.GET, null,new ParameterizedTypeReference<List<Mouvement>>() {}).getBody();
-
 		Mouvement derniermouvement=mouvements.stream().filter(mouvement->mouvement.getAbonne().getId().equals(2L)).findFirst().get();
-	
 		assertEquals("68 rue de la solitude 70510 Remiro", derniermouvement.getNouvelleValeur());
 	}
 

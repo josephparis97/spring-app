@@ -1,15 +1,16 @@
+package mocked;
+import static org.hamcrest.Matchers.is;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.hamcrest.Matchers.is;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import org.assertj.core.util.Arrays;
+
 import org.example.server.api.controller.AbonneController;
 import org.example.server.api.controller.MouvementController;
 import org.example.server.api.service.AbonneService;
@@ -17,31 +18,18 @@ import org.example.server.api.service.MouvementService;
 import org.example.server.model.Abonne;
 import org.example.server.model.Contrat;
 import org.example.server.model.Mouvement;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import io.cucumber.java.Before;
 
 public class ModificationAdresseMockTest extends AbstractTestNGSpringContextTests {
     
@@ -59,7 +47,8 @@ public class ModificationAdresseMockTest extends AbstractTestNGSpringContextTest
     @Mock 
     private MouvementService mouvementService;
     
-    @BeforeTest
+    @SuppressWarnings("deprecation")
+	@BeforeTest
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         mvc=MockMvcBuilders.standaloneSetup(abonneController).build();
@@ -72,7 +61,7 @@ public class ModificationAdresseMockTest extends AbstractTestNGSpringContextTest
     	Collection<Contrat> contrats=Stream.of(new Contrat(1L, "11 rue des volontaires")).collect(Collectors.toCollection(ArrayList::new));
     	Abonne abonne = new Abonne(0L, "Roger", "Rabbit", "11 rue des volontaires", contrats);
         Mockito.when(abonneService.save(Mockito.any(Abonne.class))).thenReturn(abonne);
-        MvcResult result= mvc.perform(post("/abonnes")
+        mvc.perform(post("/abonnes")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(mapper.writeValueAsString(abonne))
         ).andExpect(status().isOk()).andReturn();
